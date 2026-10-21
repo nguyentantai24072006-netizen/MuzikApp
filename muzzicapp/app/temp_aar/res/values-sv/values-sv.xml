@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Anslut %1$s till Apple Music om du vill lyssna på hela låten.</string>
+    <string name="approve_access_sub">Miljontals låtar. Helt reklamfritt. \nNya användare får upp till 3 månader gratis.</string>
+    <string name="btn_continue">Anslut till Apple Music</string>
+    <string name="btn_install">Installera Apple Music</string>
+    <string name="btn_update">Uppdatera Apple Music</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">若要播放完整歌曲，請將「%1$s」連接到 Apple Music。</string>
+    <string name="approve_access_sub">百萬首歌曲，全無廣告。\n新使用者可免費使用最多 3 個月。</string>
+    <string name="btn_continue">連接到 Apple Music</string>
+    <string name="btn_install">安裝 Apple Music</string>
+    <string name="btn_update">更新 Apple Music</string>
+</resources>

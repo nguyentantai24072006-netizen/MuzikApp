@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Pour écouter ce morceau en entier, connectez %1$s à Apple Music.</string>
+    <string name="approve_access_sub">Des millions de morceaux sans publicité. \nJusqu’à trois mois gratuits pour les nouveaux utilisateurs.</string>
+    <string name="btn_continue">Connectez à Apple Music</string>
+    <string name="btn_install">Installer Apple Music</string>
+    <string name="btn_update">Mettre à jour Apple Music</string>
+</resources>

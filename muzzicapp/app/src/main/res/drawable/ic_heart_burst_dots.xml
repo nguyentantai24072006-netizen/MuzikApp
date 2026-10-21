@@ -1,0 +1,34 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Primary burst dots in coral-pink -->
+    <path
+        android:fillColor="#FF2D55"
+        android:pathData="M 24,4.8 a 2.2,2.2 0 1,0 0,4.4 a 2.2,2.2 0 1,0 0,-4.4
+                         M 41,21.8 a 2.2,2.2 0 1,0 0,4.4 a 2.2,2.2 0 1,0 0,-4.4
+                         M 24,38.8 a 2.2,2.2 0 1,0 0,4.4 a 2.2,2.2 0 1,0 0,-4.4
+                         M 7,21.8 a 2.2,2.2 0 1,0 0,4.4 a 2.2,2.2 0 1,0 0,-4.4" />
+
+    <!-- Secondary diagonal burst dots in gold/purple -->
+    <path
+        android:fillColor="#FF9F43"
+        android:pathData="M 36,9.8 a 2,2 0 1,0 0,4 a 2,2 0 1,0 0,-4
+                         M 36,34 a 2,2 0 1,0 0,4 a 2,2 0 1,0 0,-4
+                         M 12,34 a 2,2 0 1,0 0,4 a 2,2 0 1,0 0,-4
+                         M 12,9.8 a 2,2 0 1,0 0,4 a 2,2 0 1,0 0,-4" />
+
+    <!-- Tiny outer sparkle particles -->
+    <path
+        android:fillColor="#F472B6"
+        android:pathData="M 24,0.7 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6
+                         M 39.5,7.2 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6
+                         M 46,22.7 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6
+                         M 39.5,38.2 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6
+                         M 24,44.7 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6
+                         M 8.5,38.2 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6
+                         M 2,22.7 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6
+                         M 8.5,7.2 a 1.3,1.3 0 1,0 0,2.6 a 1.3,1.3 0 1,0 0,-2.6" />
+</vector>

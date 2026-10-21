@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Para reproducir la canción completa, conecta %1$s a Apple Music.</string>
+    <string name="approve_access_sub">Millones de canciones. Sin anuncios. \nHasta 3 meses gratis para nuevos usuarios.</string>
+    <string name="btn_continue">Conectarse a Apple Music</string>
+    <string name="btn_install">Instalar Apple Music</string>
+    <string name="btn_update">Actualizar Apple Music</string>
+</resources>

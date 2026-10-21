@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">כדי לנגן את השיר המלא, יש לחבר את %1$s אל Apple Music.</string>
+    <string name="approve_access_sub">מיליוני שירים. כולם ללא פרסומות. \nמשתמשים חדשים יכולים ליהנות מעד שלושה חודשים בחינם.</string>
+    <string name="btn_continue">התחבר/י ל-Apple Music</string>
+    <string name="btn_install">התקן/י את Apple Music</string>
+    <string name="btn_update">עדכן/י את Apple Music</string>
+</resources>

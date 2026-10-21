@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Kuuntele koko kappale yhdistämällä %1$s Apple Musiciin.</string>
+    <string name="approve_access_sub">Miljoonia kappaleita. Kaikki ilman mainoksia. \nUusille käyttäjille jopa 3 kuukautta ilmaiseksi.</string>
+    <string name="btn_continue">Yhdistä Apple Musiciin</string>
+    <string name="btn_install">Asenna Apple Music</string>
+    <string name="btn_update">Päivitä Apple Music</string>
+</resources>

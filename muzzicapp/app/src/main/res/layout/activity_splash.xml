@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_bg">
+
+    <!-- Ambient glow behind the center (expands and glows when logo reveals) -->
+    <View
+        android:id="@+id/splash_glow"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:alpha="0"
+        android:background="@drawable/bg_splash_glow" />
+
+    <!-- PHASE 1 & 2: Center Initial Content (Small Note Icon + Progress Bar) -->
+    <LinearLayout
+        android:id="@+id/splash_loading_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Small music note icon (YouTube style start) -->
+        <ImageView
+            android:id="@+id/splash_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:alpha="0"
+            android:src="@drawable/ic_splash_note" />
+
+        <!-- Sleek progress container -->
+        <FrameLayout
+            android:id="@+id/splash_progress_container"
+            android:layout_width="160dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="36dp"
+            android:alpha="0">
+
+            <!-- Track background -->
+            <View
+                android:id="@+id/splash_progress_track"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_splash_progress_track" />
+
+            <!-- Progress fill -->
+            <View
+                android:id="@+id/splash_progress_fill"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start|center_vertical"
+                android:background="@drawable/bg_splash_progress_fill" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- PHASE 3 & 4: Logo Reveal Container (Reveals after loading completes) -->
+    <LinearLayout
+        android:id="@+id/splash_logo_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:alpha="0"
+        android:scaleX="0.65"
+        android:scaleY="0.65">
+
+        <!-- App Logo (Full official squircle icon) -->
+        <ImageView
+            android:id="@+id/splash_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
+            android:elevation="12dp" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/splash_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.08"
+            android:text="Muzzic"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/splash_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:letterSpacing="0.18"
+            android:text="FEEL EVERY BEAT"
+            android:textColor="#64748B"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

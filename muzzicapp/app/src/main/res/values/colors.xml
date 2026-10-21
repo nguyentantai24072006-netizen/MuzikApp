@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ========================================== -->
+    <!-- PRIMARY BRAND — Electric Neon Blue (App Icon) -->
+    <!-- ========================================== -->
+    <color name="coral_primary">#2979FF</color>
+    <color name="coral_dark">#1A63D9</color>
+    <color name="coral_light">#549BFF</color>
+    <color name="brand_glow">#60A5FA</color>
+    <color name="brand_container">#132338</color>
+    <color name="brand_container_selected">#1E3555</color>
+    <color name="accent_rose">#38BDF8</color>
+    <color name="accent_gold">#FBBF24</color>
+    <color name="accent_teal">#38BDF8</color>
+
+    <!-- ========================================== -->
+    <!-- LIGHT THEME (fallback)                     -->
+    <!-- ========================================== -->
+    <color name="light_bg">#F4F6F9</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="light_text_primary">#0F172A</color>
+    <color name="light_text_secondary">#475569</color>
+    <color name="light_text_tertiary">#94A3B8</color>
+    <color name="light_divider">#E2E8F0</color>
+
+    <!-- ========================================== -->
+    <!-- DARK THEME (Refined Sleek Obsidian Dark)   -->
+    <!-- ========================================== -->
+    <color name="dark_bg">#121316</color>
+    <color name="dark_surface">#1A1C22</color>
+    <color name="dark_card">#22252D</color>
+    <color name="dark_text_primary">#FFFFFF</color>
+    <color name="dark_text_secondary">#94A3B8</color>
+    <color name="dark_text_tertiary">#64748B</color>
+
+    <!-- ========================================== -->
+    <!-- SEMANTIC COLORS (auto-switch night mode)   -->
+    <!-- ========================================== -->
+
+    <!-- Adaptive backgrounds -->
+    <color name="bg_primary">#121316</color>
+    <color name="bg_secondary">#1A1C22</color>
+    <color name="bg_card">#22252D</color>
+
+    <!-- Adaptive text -->
+    <color name="text_primary_adaptive">#FFFFFF</color>
+    <color name="text_secondary_adaptive">#94A3B8</color>
+    <color name="text_tertiary_adaptive">#64748B</color>
+
+    <!-- Adaptive UI elements -->
+    <color name="divider_adaptive">#262932</color>
+    <color name="icon_color_adaptive">#FFFFFF</color>
+    <color name="nav_bg">#16181E</color>
+    <color name="search_bg">#1D2027</color>
+    <color name="chip_default_bg_adaptive">#1E2128</color>
+    <color name="chip_default_text_adaptive">#94A3B8</color>
+    <color name="mini_player_border">#2A2D37</color>
+
+    <!-- Now Playing -->
+    <color name="now_playing_bg">#121316</color>
+
+    <!-- ========================================== -->
+    <!-- VIBRANT GENRE & FEATURED CARDS (Apple/Spotify) -->
+    <!-- ========================================== -->
+
+    <!-- V-Pop Hits (Coral to Rose) -->
+    <color name="gradient_vpop_start">#E11D48</color>
+    <color name="gradient_vpop_end">#BE123C</color>
+
+    <!-- Indie Việt (Fresh Emerald to Deep Teal) -->
+    <color name="gradient_indie_start">#0D9488</color>
+    <color name="gradient_indie_end">#047857</color>
+
+    <!-- Hip-Hop Việt (Amber to Fiery Orange) -->
+    <color name="gradient_hiphop_start">#F59E0B</color>
+    <color name="gradient_hiphop_end">#D97706</color>
+
+    <!-- Pop Global (Electric Indigo to Violet) -->
+    <color name="gradient_pop_start">#6366F1</color>
+    <color name="gradient_pop_end">#8B5CF6</color>
+
+    <!-- Chill Beats (Dreamy Cyan to Sapphire) -->
+    <color name="gradient_chill_start">#0284C7</color>
+    <color name="gradient_chill_end">#1D4ED8</color>
+
+    <!-- Acoustic (Warm Bronze to Honey Gold) -->
+    <color name="gradient_acoustic_start">#D97706</color>
+    <color name="gradient_acoustic_end">#92400E</color>
+
+    <!-- Featured Card — Deep Radiant Indigo-Violet Glow -->
+    <color name="gradient_featured_start">#1E1B4B</color>
+    <color name="gradient_featured_mid">#312E81</color>
+    <color name="gradient_featured_end">#1E1B4B</color>
+
+    <!-- Suggestion 1 -->
+    <color name="gradient_suggest1_start">#1E222D</color>
+    <color name="gradient_suggest1_end">#282E3D</color>
+
+    <!-- Suggestion 2 -->
+    <color name="gradient_suggest2_start">#1E222D</color>
+    <color name="gradient_suggest2_end">#282E3D</color>
+
+    <!-- Suggestion 3 -->
+    <color name="gradient_suggest3_start">#1E222D</color>
+    <color name="gradient_suggest3_end">#282E3D</color>
+
+    <!-- Suggestion 4 -->
+    <color name="gradient_suggest4_start">#1E222D</color>
+    <color name="gradient_suggest4_end">#282E3D</color>
+
+    <!-- Chip / Tag -->
+    <color name="chip_bg_default">#1E2128</color>
+    <color name="chip_bg_selected">#2979FF</color>
+    <color name="chip_text_default">#94A3B8</color>
+
+    <!-- Mini Player -->
+    <color name="mini_player_bg">#1A1C22</color>
+
+    <!-- Bottom Nav -->
+    <color name="nav_active">#2979FF</color>
+    <color name="nav_inactive">#64748B</color>
+
+    <!-- Avatar colors -->
+    <color name="avatar_blue">#2979FF</color>
+    <color name="avatar_pink">#38BDF8</color>
+    <color name="avatar_orange">#60A5FA</color>
+
+    <!-- Song thumbnail -->
+    <color name="thumb_purple">#162538</color>
+    <color name="thumb_blue">#1B304A</color>
+    <color name="thumb_coral">#142337</color>
+    <color name="thumb_gradient_start">#1B314D</color>
+    <color name="thumb_gradient_end">#122135</color>
+</resources>

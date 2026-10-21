@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_xl"
+        android:paddingEnd="@dimen/spacing_xl"
+        android:paddingTop="@dimen/spacing_xxl"
+        android:paddingBottom="@dimen/spacing_lg">
+
+        <!-- Header: Avatar + Greeting + Notification -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_xl">
+
+            <!-- Profile Info Container (Avatar + Greeting + Status) -->
+            <LinearLayout
+                android:id="@+id/home_header_profile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless">
+
+                <!-- Avatar Container -->
+                <FrameLayout
+                    android:id="@+id/home_avatar_container"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+
+                    <!-- Avatar Image (silhouette or photo) -->
+                    <ImageView
+                        android:id="@+id/home_avatar_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside"
+                        android:padding="11dp"
+                        android:src="@drawable/ic_user_avatar"
+                        android:background="@drawable/bg_avatar_guest"
+                        app:tint="#A0AEC0"
+                        android:contentDescription="@null" />
+
+                    <!-- Avatar Text (initials for logged-in user without photo) -->
+                    <TextView
+                        android:id="@+id/home_avatar_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="U"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_avatar_user" />
+
+                    <!-- Online / Sync Status Dot -->
+                    <View
+                        android:id="@+id/home_avatar_status_dot"
+                        android:layout_width="11dp"
+                        android:layout_height="11dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="#10B981"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <!-- Greeting & Account Info -->
+                <LinearLayout
+                    android:id="@+id/home_greeting_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+
+                    <!-- Greeting Prefix (e.g. "Chào buổi tối 🌙") -->
+                    <TextView
+                        android:id="@+id/home_tv_greeting_prefix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chào bạn,"
+                        android:textColor="@color/text_secondary_adaptive"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.01" />
+
+                    <!-- Name + Action Badge Row -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="2dp">
+
+                        <TextView
+                            android:id="@+id/home_tv_greeting_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Khách"
+                            android:textColor="@color/text_primary_adaptive"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:ellipsize="end"
+                            android:maxLines="1" />
+
+                        <!-- Action Pill Badge -->
+                        <TextView
+                            android:id="@+id/home_tv_action_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_badge_login"
+                            android:text="Đăng nhập ›"
+                            android:textColor="#38BDF8"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Notification Bell Icon (Glass Circle Container) -->
+            <FrameLayout
+                android:id="@+id/home_notification_container"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_circle_glass"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/home_notification"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_notification"
+                    app:tint="@color/icon_color_adaptive"
+                    android:contentDescription="@string/cd_notification" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Mood Tags Row -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginBottom="@dimen/spacing_xl">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chip_relax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/chip_height"
+                    android:text="@string/home_mood_relax"
+                    style="@style/MoodChipSelected"
+                    android:layout_marginEnd="@dimen/spacing_sm" />
+
+                <TextView
+                    android:id="@+id/chip_energy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/chip_height"
+                    android:text="@string/home_mood_energy"
+                    style="@style/MoodChipDefault"
+                    android:layout_marginEnd="@dimen/spacing_sm" />
+
+                <TextView
+                    android:id="@+id/chip_chill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/chip_height"
+                    android:text="@string/home_mood_chill"
+                    style="@style/MoodChipDefault"
+                    android:layout_marginEnd="@dimen/spacing_sm" />
+
+                <TextView
+                    android:id="@+id/chip_focus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/chip_height"
+                    android:text="@string/home_mood_focus"
+                    style="@style/MoodChipDefault"
+                    android:layout_marginEnd="@dimen/spacing_sm" />
+
+                <TextView
+                    android:id="@+id/chip_happy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/chip_height"
+                    android:text="@string/home_mood_happy"
+                    style="@style/MoodChipDefault"
+                    android:layout_marginEnd="@dimen/spacing_sm" />
+
+                <TextView
+                    android:id="@+id/chip_sad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/chip_height"
+                    android:text="Tâm trạng"
+                    style="@style/MoodChipDefault"
+                    android:layout_marginEnd="@dimen/spacing_sm" />
+
+                <TextView
+                    android:id="@+id/chip_love"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/chip_height"
+                    android:text="Lãng mạn"
+                    style="@style/MoodChipDefault" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Nhạc đã nghe trước đó (Recently Played) Section -->
+        <LinearLayout
+            android:id="@+id/home_recent_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/spacing_xxl"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Đã nghe gần đây"
+                    android:textColor="@color/text_primary_adaptive"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/home_recent_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóa lịch sử"
+                    android:textColor="@color/text_tertiary_adaptive"
+                    android:textSize="@dimen/text_caption"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_recent_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:clipChildren="false" />
+        </LinearLayout>
+
+        <!-- Featured Playlist Card -->
+        <LinearLayout
+            android:id="@+id/featured_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/featured_card_height"
+            android:background="@drawable/bg_gradient_featured"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_xl"
+            android:layout_marginBottom="@dimen/spacing_xxl"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_featured_label"
+                android:textColor="#B3FFFFFF"
+                android:textSize="@dimen/text_caption"
+                android:letterSpacing="0.1" />
+
+            <TextView
+                android:id="@+id/featured_card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_featured_title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_headline"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/spacing_sm" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/featured_card_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_featured_desc"
+                    android:textColor="#B3FFFFFF"
+                    android:textSize="@dimen/text_body"
+                    android:layout_alignParentBottom="true" />
+
+                <FrameLayout
+                    android:id="@+id/featured_play_button"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/bg_play_button"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_play"
+                        android:contentDescription="@string/cd_play" />
+                </FrameLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Playlist Đề xuất Section Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/home_suggestions_title"
+                android:textColor="@color/text_primary_adaptive"
+                android:textSize="@dimen/text_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/home_suggestions_see_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đổi mới"
+                android:textColor="@color/coral_primary"
+                android:textSize="@dimen/text_body"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+
+        <!-- Playlist Đề xuất Horizontal RecyclerView -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_xxl"
+            android:clipChildren="false">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/playlist_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:clipChildren="false" />
+
+            <ProgressBar
+                android:id="@+id/playlist_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/coral_primary"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Đề xuất cho bạn Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/home_recommended_title"
+                android:textColor="@color/text_primary_adaptive"
+                android:textSize="@dimen/text_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/recommended_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_recommended_refresh"
+                android:textColor="@color/coral_primary"
+                android:textSize="@dimen/text_body"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Đề xuất cho bạn Horizontal RecyclerView -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_xxl"
+            android:clipChildren="false">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommended_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:clipChildren="false" />
+
+            <ProgressBar
+                android:id="@+id/recommended_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/coral_primary" />
+        </FrameLayout>
+
+        <!-- Trending Section Header -->
+        <TextView
+            android:id="@+id/home_trending_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_trending_title"
+            android:textColor="@color/text_primary_adaptive"
+            android:textSize="@dimen/text_title"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/spacing_md" />
+
+        <!-- Trending Song Container -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trending_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingBottom="6dp" />
+                
+            <!-- Loading indicator -->
+            <ProgressBar
+                android:id="@+id/trending_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/coral_primary" />
+        </FrameLayout>
+
+        <!-- ========================================== -->
+        <!-- NGHỆ SĨ THỊNH HÀNH SECTION               -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/home_artists_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nghệ sĩ thịnh hành"
+                    android:textColor="@color/text_primary_adaptive"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nghệ sĩ có lượt nghe cao nhất hôm nay"
+                    android:textColor="@color/text_secondary_adaptive"
+                    android:textSize="@dimen/text_caption"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/home_artists_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xem thêm"
+                android:textColor="@color/coral_primary"
+                android:textSize="@dimen/text_caption"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+
+        <!-- Horizontal Artists RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_artists_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_marginBottom="24dp" />
+
+        <!-- ========================================== -->
+        <!-- CHỦ ĐỀ & THỂ LOẠI HOT SECTION            -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/home_genres_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chủ đề &amp; Thể loại hot"
+                    android:textColor="@color/text_primary_adaptive"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giai điệu tuyển chọn theo phong cách"
+                    android:textColor="@color/text_secondary_adaptive"
+                    android:textSize="@dimen/text_caption"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Horizontal Hot Genres RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_genres_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:layout_marginBottom="26dp" />
+
+        <!-- ========================================== -->
+        <!-- APP BRANDING FOOTER                      -->
+        <!-- ========================================== -->
+        <LinearLayout
+            android:id="@+id/home_footer_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="@drawable/bg_track_card"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_sound_wave"
+                app:tint="@color/coral_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Muzzic • Âm nhạc bất tận"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khám phá hàng triệu bài hát và nghệ sĩ bạn yêu thích"
+                android:textColor="@color/text_tertiary_adaptive"
+                android:textSize="12sp"
+                android:layout_marginTop="3dp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/home_btn_explore_more"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:text="Khám phá kho nhạc"
+                android:textColor="@color/coral_primary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="@drawable/bg_chip_sync"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Bottom spacing for mini player -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

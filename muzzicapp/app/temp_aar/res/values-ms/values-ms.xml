@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Untuk memainkan lagu penuh, sambungkan %1$s ke Apple Music.</string>
+    <string name="approve_access_sub">Berjuta-juta lagu. Semuanya bebas iklan. \nPengguna baru boleh mendapat sehingga 3 bulan percuma.</string>
+    <string name="btn_continue">Sambung ke Apple Music</string>
+    <string name="btn_install">Pasang Apple Music</string>
+    <string name="btn_update">Kemas Kini Apple Music</string>
+</resources>

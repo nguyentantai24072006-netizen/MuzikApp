@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Per reproduir la cançó sencera, connecta %1$s a l’Apple Music.</string>
+    <string name="approve_access_sub">Milions de cançons. Totes sense anuncis. \nEls usuaris nous poden gaudir de fins a 3 mesos gratis.</string>
+    <string name="btn_continue">Connectar a l’Apple Music</string>
+    <string name="btn_install">Instal·lar l’Apple Music</string>
+    <string name="btn_update">Actualitzar l’Apple Music</string>
+</resources>

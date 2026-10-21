@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">لتشغيل الأغنية بالكامل، ينبغي توصيل %1$s بـ Apple Music.</string>
+    <string name="approve_access_sub">ملايين الأغاني، كلها دون إعلانات.\nيمكن للمستخدمين الجدد الحصول على ٣ أشهر مجانية.</string>
+    <string name="btn_continue">توصيل بـ Apple Music</string>
+    <string name="btn_install">تثبيت Apple Music</string>
+    <string name="btn_update">تحديث Apple Music</string>
+</resources>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/explore_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_xl"
+        android:paddingEnd="@dimen/spacing_xl"
+        android:paddingTop="@dimen/spacing_xxl"
+        android:paddingBottom="@dimen/spacing_lg">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/explore_title_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/explore_title"
+            android:textColor="@color/text_primary_adaptive"
+            android:textSize="@dimen/text_display"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginBottom="@dimen/spacing_lg" />
+
+        <!-- Search Bar -->
+        <LinearLayout
+            android:id="@+id/explore_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/search_bar_height"
+            android:background="@drawable/bg_search_bar"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_xxl"
+            android:paddingStart="@dimen/spacing_md"
+            android:paddingEnd="@dimen/spacing_md">
+
+            <ImageView
+                android:layout_width="@dimen/icon_sm"
+                android:layout_height="@dimen/icon_sm"
+                android:src="@drawable/ic_search"
+                android:tint="@color/text_tertiary_adaptive"
+                android:contentDescription="@string/cd_search" />
+
+            <EditText
+                android:id="@+id/explore_search_input"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/search_hint"
+                android:textColorHint="@color/text_tertiary_adaptive"
+                android:textColor="@color/text_primary_adaptive"
+                android:textSize="@dimen/text_body"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <!-- Search Results Container -->
+        <LinearLayout
+            android:id="@+id/search_results_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_title"
+                android:textColor="@color/text_primary_adaptive"
+                android:textSize="@dimen/text_title"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/spacing_md" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/search_results_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingBottom="80dp"
+                    android:clipToPadding="false" />
+
+                <ProgressBar
+                    android:id="@+id/search_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/coral_primary"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <!-- Main Content (Hidden when searching) -->
+        <LinearLayout
+            android:id="@+id/explore_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Genres Title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/explore_genres_title"
+                    android:textColor="@color/text_primary_adaptive"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/explore_genres_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ngẫu nhiên"
+                    android:textColor="@color/coral_primary"
+                    android:textSize="@dimen/text_body"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp" />
+            </LinearLayout>
+
+            <!-- Genres Grid - Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <!-- V-Pop Hits -->
+                <FrameLayout
+                    android:id="@+id/genre_vpop"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/genre_card_height"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@drawable/bg_gradient_vpop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/genre_vpop"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:layout_gravity="start|bottom"
+                        android:layout_margin="@dimen/spacing_md" />
+                </FrameLayout>
+
+                <!-- Indie Việt -->
+                <FrameLayout
+                    android:id="@+id/genre_indie"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/genre_card_height"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@drawable/bg_gradient_indie"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/genre_indie"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:layout_gravity="start|bottom"
+                        android:layout_margin="@dimen/spacing_md" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Genres Grid - Row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <!-- Hip-Hop Việt -->
+                <FrameLayout
+                    android:id="@+id/genre_hiphop"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/genre_card_height"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@drawable/bg_gradient_hiphop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/genre_hiphop"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:layout_gravity="start|bottom"
+                        android:layout_margin="@dimen/spacing_md" />
+                </FrameLayout>
+
+                <!-- Pop Global -->
+                <FrameLayout
+                    android:id="@+id/genre_pop"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/genre_card_height"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@drawable/bg_gradient_pop"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/genre_pop"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:layout_gravity="start|bottom"
+                        android:layout_margin="@dimen/spacing_md" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Genres Grid - Row 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/spacing_xxl">
+
+                <!-- Chill Beats -->
+                <FrameLayout
+                    android:id="@+id/genre_chill"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/genre_card_height"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/spacing_sm"
+                    android:background="@drawable/bg_gradient_chill"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/genre_chill"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:layout_gravity="start|bottom"
+                        android:layout_margin="@dimen/spacing_md" />
+                </FrameLayout>
+
+                <!-- Acoustic -->
+                <FrameLayout
+                    android:id="@+id/genre_acoustic"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/genre_card_height"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:background="@drawable/bg_gradient_acoustic"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/genre_acoustic"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold"
+                        android:layout_gravity="start|bottom"
+                        android:layout_margin="@dimen/spacing_md" />
+                </FrameLayout>
+            </LinearLayout>
+            
+            <!-- Playlist Phổ Biến Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/explore_playlists_title"
+                    android:textColor="@color/text_primary_adaptive"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/explore_playlists_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đổi mới"
+                    android:textColor="@color/coral_primary"
+                    android:textSize="@dimen/text_body"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/explore_playlists_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:layout_marginBottom="@dimen/spacing_xxl" />
+
+            <!-- Artists Section Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/explore_artists_title"
+                android:textColor="@color/text_primary_adaptive"
+                android:textSize="@dimen/text_title"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/spacing_lg" />
+
+            <!-- Artists Horizontal Scroll -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_lg">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/explore_artists_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingEnd="16dp" />
+                    
+                <ProgressBar
+                    android:id="@+id/explore_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/coral_primary" />
+            </FrameLayout>
+
+            <!-- Bottom spacing -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_lg" />
+                
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

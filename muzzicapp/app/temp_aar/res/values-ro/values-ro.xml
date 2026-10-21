@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Pentru a reda toată melodia, conectați %1$s la Apple Music.</string>
+    <string name="approve_access_sub">Milioane de melodii. Toate, fără reclame. \nUtilizatorii noi pot primi până la 3 luni gratuite.</string>
+    <string name="btn_continue">Conectați la Apple Music</string>
+    <string name="btn_install">Instalați Apple Music</string>
+    <string name="btn_update">Actualizați Apple Music</string>
+</resources>

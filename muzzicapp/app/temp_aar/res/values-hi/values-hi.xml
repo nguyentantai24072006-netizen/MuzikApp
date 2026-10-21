@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">पूरा गीत चलाने के लिए %1$s को Apple Music से कनेक्ट करें।</string>
+    <string name="approve_access_sub">लाखों गीत। विज्ञापन-मुक्त। \nनए ग्राहक 3 महीने तक मुफ़्त सुन सकते हैं।</string>
+    <string name="btn_continue">Apple Music से कनेक्ट करें</string>
+    <string name="btn_install">Apple Music इंस्टॉल करें</string>
+    <string name="btn_update">Apple Music अपडेट करें</string>
+</resources>

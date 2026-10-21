@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">To play the full song, connect %1$s to Apple Music.</string>
+    <string name="approve_access_sub">Millions of songs. All ad-free. \nNew users can get up to 3 months free.</string>
+    <string name="btn_continue">Connect to Apple Music</string>
+    <string name="btn_install">Install Apple Music</string>
+    <string name="btn_update">Update Apple Music</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Verbind %1$s met Apple Music om het volledige nummer af te spelen.</string>
+    <string name="approve_access_sub">Miljoenen nummers. Geheel reclamevrij. \nTot 3 maanden gratis voor nieuwe gebruikers.</string>
+    <string name="btn_continue">Verbind met Apple Music</string>
+    <string name="btn_install">Installeer Apple Music</string>
+    <string name="btn_update">Werk Apple Music bij</string>
+</resources>

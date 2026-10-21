@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Semantic color overrides for dark/night mode aligned with app icon -->
+
+    <!-- Adaptive backgrounds -->
+    <color name="bg_primary">#121316</color>
+    <color name="bg_secondary">#1A1C22</color>
+    <color name="bg_card">#22252D</color>
+
+    <!-- Adaptive text -->
+    <color name="text_primary_adaptive">#FFFFFF</color>
+    <color name="text_secondary_adaptive">#94A3B8</color>
+    <color name="text_tertiary_adaptive">#64748B</color>
+
+    <!-- Adaptive UI elements -->
+    <color name="divider_adaptive">#262932</color>
+    <color name="icon_color_adaptive">#FFFFFF</color>
+    <color name="nav_bg">#16181E</color>
+    <color name="search_bg">#1D2027</color>
+    <color name="chip_default_bg_adaptive">#1E2128</color>
+    <color name="chip_default_text_adaptive">#94A3B8</color>
+    <color name="mini_player_border">#2A2D37</color>
+
+    <!-- Now Playing -->
+    <color name="now_playing_bg">#121316</color>
+
+    <!-- Mini Player -->
+    <color name="mini_player_bg">#1A1C22</color>
+</resources>

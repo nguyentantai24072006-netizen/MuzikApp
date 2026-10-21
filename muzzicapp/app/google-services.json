@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1050978611317",
+    "project_id": "muzzic-app",
+    "storage_bucket": "muzzic-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050978611317:android:261fc7a75ffd88f821083c",
+        "android_client_info": {
+          "package_name": "com.example.muzzicapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFsQd1hgomfUkVa8TJCDzjVaRFh752pgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

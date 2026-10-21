@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Щоб відтворити всю пісню, під’єднайте %1$s до Apple Music.</string>
+    <string name="approve_access_sub">Мільйони пісень. Ніякої реклами. \nНові користувачі можуть отримати до 3 місяців безкоштовного доступу.</string>
+    <string name="btn_continue">Підʼєднати до Apple Music</string>
+    <string name="btn_install">Інсталювати Apple Music</string>
+    <string name="btn_update">Оновити Apple Music</string>
+</resources>

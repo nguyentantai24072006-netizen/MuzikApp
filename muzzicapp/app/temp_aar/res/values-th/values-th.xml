@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">ในการเล่นแบบเต็มเพลง ให้เชื่อมต่อ %1$s กับ Apple Music</string>
+    <string name="approve_access_sub">ฟังเพลงนับล้านเพลงโดยไม่มีโฆษณาคั่น \nผู้ใช้ใหม่สามารถใช้งานได้ฟรีสูงสุด 3 เดือน</string>
+    <string name="btn_continue">เชื่อมต่อกับ Apple Music</string>
+    <string name="btn_install">ติดตั้ง Apple Music</string>
+    <string name="btn_update">อัพเดท Apple Music</string>
+</resources>

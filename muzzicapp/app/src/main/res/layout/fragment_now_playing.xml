@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/now_playing_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_bg"
+    android:paddingTop="8dp">
+
+    <!-- Mini Pull-down Slider Bar (Interactive Drag/Swipe to Collapse Player) -->
+    <LinearLayout
+        android:id="@+id/now_playing_drag_handle_area"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/now_playing_drag_handle"
+            android:layout_width="42dp"
+            android:layout_height="4.5dp"
+            android:background="@drawable/bg_pill_handle" />
+    </LinearLayout>
+
+    <!-- Normal Top Bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/now_playing_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacing_lg"
+        android:paddingEnd="@dimen/spacing_lg"
+        android:paddingTop="2dp"
+        android:paddingBottom="4dp"
+        app:layout_constraintTop_toBottomOf="@+id/now_playing_drag_handle_area"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/now_playing_collapse"
+            android:layout_width="@dimen/icon_lg"
+            android:layout_height="@dimen/icon_lg"
+            android:src="@drawable/ic_chevron_down"
+            android:contentDescription="@string/cd_collapse"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/now_playing_collapse"
+            app:layout_constraintEnd_toStartOf="@+id/now_playing_more"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/now_playing_from_label"
+                android:textColor="@color/text_tertiary_adaptive"
+                android:textSize="10sp"
+                android:letterSpacing="0.1"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/now_playing_source"
+                android:textColor="@color/text_primary_adaptive"
+                android:textSize="@dimen/text_caption"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/now_playing_more"
+            android:layout_width="@dimen/icon_lg"
+            android:layout_height="@dimen/icon_lg"
+            android:src="@drawable/ic_more"
+            android:contentDescription="@string/cd_more"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Compact Header in Lyrics Mode (Cover Art + Title + Artist docked at the top) -->
+    <LinearLayout
+        android:id="@+id/now_playing_lyrics_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/spacing_lg"
+        android:paddingEnd="@dimen/spacing_lg"
+        android:paddingTop="2dp"
+        android:paddingBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/now_playing_drag_handle_area"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Clickable Area for Compact Cover Art & Song Info to exit lyrics mode and expand back -->
+        <LinearLayout
+            android:id="@+id/now_playing_lyrics_compact_track_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless">
+
+            <!-- Compact Rounded Cover Art (56dp x 56dp) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/now_playing_lyrics_compact_art_card"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <ImageView
+                    android:id="@+id/now_playing_lyrics_compact_art"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_album_art" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Compact Song Info -->
+            <LinearLayout
+                android:id="@+id/now_playing_lyrics_compact_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:id="@+id/now_playing_lyrics_compact_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tên bài hát"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/now_playing_lyrics_compact_artist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nghệ sĩ"
+                    android:textColor="@color/text_secondary_adaptive"
+                    android:textSize="14sp"
+                    android:layout_marginTop="2dp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Close / Exit Lyrics Button -->
+        <ImageView
+            android:id="@+id/now_playing_lyrics_btn_close"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_chevron_down"
+            android:padding="6dp"
+            app:tint="@color/text_secondary_adaptive"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Đóng lời bài hát" />
+    </LinearLayout>
+
+    <!-- Karaoke Recording HUD Bar (Visible when recording audio) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/now_playing_recording_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        android:elevation="14dp"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="14dp"
+        app:cardBackgroundColor="#F0171228"
+        app:layout_constraintTop_toBottomOf="@+id/now_playing_top_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="10dp">
+
+            <!-- Red Blinking Dot -->
+            <View
+                android:id="@+id/now_playing_rec_dot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="#FF3B30"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Recording text & timer -->
+            <TextView
+                android:id="@+id/now_playing_rec_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Đang ghi âm: 00:00"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Stop & Save Button -->
+            <TextView
+                android:id="@+id/now_playing_rec_btn_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:background="@drawable/bg_btn_karaoke"
+                android:text="Dừng &amp; Lưu"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <!-- Cancel Button -->
+            <ImageView
+                android:id="@+id/now_playing_rec_btn_cancel"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:padding="6dp"
+                android:src="@drawable/ic_close"
+                app:tint="#A5B4C8"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Hủy" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Normal Central Content: Full Album Art & Song Info -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/now_playing_main_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/now_playing_top_bar"
+        app:layout_constraintBottom_toTopOf="@+id/now_playing_bottom_controls_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 1:1 Album Art Frame with Apple Music-style rounded corners -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/now_playing_content_frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/spacing_xl"
+            android:layout_marginEnd="@dimen/spacing_xl"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/now_playing_song_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/now_playing_album_art"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_album_art"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Song Info and Karaoke/Heart -->
+        <LinearLayout
+            android:id="@+id/now_playing_song_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/spacing_xl"
+            android:paddingEnd="@dimen/spacing_xl"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/now_playing_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/now_playing_song_title"
+                    android:textColor="@color/text_primary_adaptive"
+                    android:textSize="@dimen/text_display"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/now_playing_artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/now_playing_artist"
+                    android:textColor="@color/text_secondary_adaptive"
+                    android:textSize="@dimen/text_body"
+                    android:layout_marginTop="4dp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/now_playing_favorite_container"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <!-- Burst Ring for explosion effect -->
+                <View
+                    android:id="@+id/now_playing_heart_burst_ring"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_heart_burst_ring"
+                    android:visibility="invisible" />
+
+                <!-- Burst Sparkle Dots -->
+                <ImageView
+                    android:id="@+id/now_playing_heart_burst_dots"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_heart_burst_dots"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/now_playing_btn_favorite"
+                    android:layout_width="@dimen/icon_lg"
+                    android:layout_height="@dimen/icon_lg"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_heart_outline"
+                    android:contentDescription="@string/cd_favorite"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Full-screen Lyrics View in Lyrics Mode (Takes up the whole screen under compact header) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/now_playing_lyrics_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/now_playing_lyrics_header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ScrollView
+            android:id="@+id/now_playing_lyrics_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:fadingEdgeLength="48dp"
+            android:requiresFadingEdge="vertical"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp">
+
+            <LinearLayout
+                android:id="@+id/now_playing_lyrics_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:paddingTop="20dp"
+                android:paddingBottom="240dp" />
+        </ScrollView>
+
+        <!-- Frosted Glass Scrim docked ONLY in the bottom area behind controls -->
+        <View
+            android:id="@+id/now_playing_lyrics_bottom_blur_backdrop"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/bg_lyrics_bottom_blur"
+            android:alpha="0"
+            android:visibility="gone"
+            android:clickable="false"
+            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Top Right Karaoke & Sync Tools -->
+        <LinearLayout
+            android:id="@+id/now_playing_karaoke_tools"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_pill_vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="6dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/now_playing_btn_mic"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_mic_cyan"
+                android:layout_marginEnd="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <ImageView
+                android:id="@+id/now_playing_btn_sparkle"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_sparkle"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Tap Target at Bottom to bring back playback controls in Lyrics Mode with animated arrow indicator -->
+    <FrameLayout
+        android:id="@+id/now_playing_bottom_tap_target"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Upward Arrow Navigation Indicator (iPhone lock-screen bounce hint style) -->
+        <LinearLayout
+            android:id="@+id/now_playing_hint_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:alpha="0.35"
+            android:background="@drawable/bg_indicator_pill">
+
+            <ImageView
+                android:id="@+id/now_playing_hint_arrow"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_chevron_up"
+                app:tint="@color/white"
+                android:contentDescription="Mở thanh điều khiển" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Playback Controls Container (Progress Bar, Buttons, Bottom Navigation Icons) -->
+    <LinearLayout
+        android:id="@+id/now_playing_bottom_controls_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Progress Bar -->
+        <SeekBar
+            android:id="@+id/now_playing_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="0"
+            android:progressTint="@color/coral_primary"
+            android:progressBackgroundTint="@color/divider_adaptive"
+            android:layout_marginStart="@dimen/spacing_xl"
+            android:layout_marginEnd="@dimen/spacing_xl"
+            android:layout_marginBottom="6dp" />
+
+        <!-- Time Labels -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_xl"
+            android:paddingEnd="@dimen/spacing_xl"
+            android:layout_marginBottom="@dimen/spacing_lg">
+
+            <TextView
+                android:id="@+id/now_playing_time_current"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/now_playing_time_current"
+                android:textColor="@color/text_secondary_adaptive"
+                android:textSize="@dimen/text_caption" />
+
+            <TextView
+                android:id="@+id/now_playing_time_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00"
+                android:textColor="@color/text_secondary_adaptive"
+                android:textSize="@dimen/text_caption" />
+        </LinearLayout>
+
+        <!-- Playback Controls (Shuffle, Previous, Play/Pause, Next, Repeat) -->
+        <LinearLayout
+            android:id="@+id/now_playing_controls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="@dimen/spacing_xl"
+            android:paddingEnd="@dimen/spacing_xl"
+            android:layout_marginBottom="@dimen/spacing_xl">
+
+            <ImageView
+                android:id="@+id/now_playing_btn_shuffle"
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
+                android:src="@drawable/ic_shuffle"
+                android:contentDescription="@string/cd_shuffle"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/now_playing_btn_previous"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_previous"
+                android:contentDescription="@string/cd_previous"
+                app:tint="@color/icon_color_adaptive"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Large Play/Pause Button -->
+            <FrameLayout
+                android:id="@+id/now_playing_btn_play_pause"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_play_button_large"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/now_playing_icon_play_pause"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_pause_large"
+                    app:tint="@color/white"
+                    android:contentDescription="@string/cd_pause" />
+            </FrameLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/now_playing_btn_next"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_next"
+                android:contentDescription="@string/cd_next"
+                app:tint="@color/icon_color_adaptive"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/now_playing_btn_repeat"
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
+                android:src="@drawable/ic_repeat"
+                android:contentDescription="@string/cd_repeat"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+        </LinearLayout>
+
+        <!-- Bottom Bar (Lyrics, Bookmark, Queue) -->
+        <LinearLayout
+            android:id="@+id/now_playing_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:layout_marginBottom="6dp">
+
+            <ImageView
+                android:id="@+id/now_playing_btn_lyrics"
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
+                android:src="@drawable/ic_focus_lyrics"
+                android:tint="@color/text_tertiary_adaptive"
+                android:contentDescription="@string/cd_lyrics"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/now_playing_btn_volume"
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
+                android:src="@drawable/ic_volume_up"
+                android:tint="@color/text_tertiary_adaptive"
+                android:contentDescription="Âm lượng &amp; Đầu ra âm thanh"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/now_playing_btn_bookmark"
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
+                android:src="@drawable/ic_bookmark"
+                android:tint="@color/text_tertiary_adaptive"
+                android:contentDescription="@string/cd_bookmark"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/now_playing_btn_queue"
+                android:layout_width="@dimen/icon_lg"
+                android:layout_height="@dimen/icon_lg"
+                android:src="@drawable/ic_queue"
+                android:tint="@color/text_tertiary_adaptive"
+                android:contentDescription="@string/cd_queue"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Floating Sync Panel (Root overlay, always above all bottom controls & tap targets) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/now_playing_lyrics_sync_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="14dp"
+        android:visibility="gone"
+        android:elevation="32dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="32dp"
+        app:cardBackgroundColor="#F2101622"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <!-- Header: Title, Reset & Close -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_sparkle"
+                    android:layout_marginEnd="6dp"
+                    app:tint="#00E5FF" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Đồng bộ nhịp lời bài hát"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/sync_panel_chip_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:gravity="center"
+                    android:text="Đặt lại 0s"
+                    android:textColor="#94A3B8"
+                    android:textSize="11sp"
+                    android:background="@drawable/bg_chip_sync"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageView
+                    android:id="@+id/sync_panel_btn_close"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_close"
+                    android:padding="5dp"
+                    app:tint="#94A3B8"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Value Display with real-time feedback -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/sync_panel_tv_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00s"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/sync_panel_tv_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Khớp chuẩn 0s"
+                    android:textColor="#94A3B8"
+                    android:textSize="12sp"
+                    android:layout_marginStart="8dp"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+            </LinearLayout>
+
+            <!-- Slider Control -->
+            <SeekBar
+                android:id="@+id/sync_panel_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="200"
+                android:progress="100"
+                android:progressTint="#00E5FF"
+                android:thumbTint="#00E5FF"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Action Buttons: Row 1 -> Steppers [-0.5s Chậm lại] [+0.5s Nhanh hơn] -->
+            <LinearLayout
+                android:id="@+id/sync_panel_row_steppers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:id="@+id/sync_panel_chip_minus_half"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:gravity="center"
+                    android:text="⏪ Lời chậm lại 0.5s"
+                    android:textColor="#E2E8F0"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_chip_sync"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/sync_panel_chip_plus_half"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="⏩ Lời nhanh hơn 0.5s"
+                    android:textColor="#E2E8F0"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_chip_sync"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Action Buttons: Row 2 -> [🎯 Khớp ngay câu này] [↺ Nghe lại 3s] -->
+            <LinearLayout
+                android:id="@+id/sync_panel_row_actions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sync_panel_btn_sync_now"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1.3"
+                    android:layout_marginEnd="6dp"
+                    android:gravity="center"
+                    android:text="🎯 Khớp ngay câu này"
+                    android:textColor="#00E5FF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_chip_sync_accent"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/sync_panel_btn_replay"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="↺ Nghe lại 3s"
+                    android:textColor="#E2E8F0"
+                    android:textSize="12sp"
+                    android:background="@drawable/bg_chip_sync"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <!-- Hint / Status message -->
+            <TextView
+                android:id="@+id/sync_panel_tv_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💡 Bấm 'Khớp ngay câu này' khi ca sĩ vừa bắt đầu câu hát để tự đồng bộ chuẩn 100%"
+                android:textColor="#94A3B8"
+                android:textSize="11sp"
+                android:gravity="center"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Για αναπαραγωγή ολόκληρου του τραγουδιού, συνδέστε το «%1$s» στο Apple Music.</string>
+    <string name="approve_access_sub">Εκατομμύρια τραγούδια. Χωρίς διαφημίσεις. \nΟι νέοι χρήστες μπορούν να λάβουν έως και 3 μήνες δωρεάν.</string>
+    <string name="btn_continue">Σύνδεση στο Apple Music</string>
+    <string name="btn_install">Εγκατάσταση Apple Music</string>
+    <string name="btn_update">Ενημέρωση Apple Music</string>
+</resources>

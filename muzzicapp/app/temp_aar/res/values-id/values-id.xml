@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Untuk memutar seluruh lagu, hubungkan %1$s ke Apple Music.</string>
+    <string name="approve_access_sub">Jutaan lagu. Semuanya bebas iklan. \nPengguna baru dapat memperoleh hingga 3 bulan gratis.</string>
+    <string name="btn_continue">Hubungkan ke Apple Music</string>
+    <string name="btn_install">Instal Apple Music</string>
+    <string name="btn_update">Perbarui Apple Music</string>
+</resources>

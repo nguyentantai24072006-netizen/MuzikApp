@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Để phát toàn bộ bài hát, hãy kết nối %1$s với Apple Music.</string>
+    <string name="approve_access_sub">Hàng triệu bài hát. Hoàn toàn không có quảng cáo. \nNgười dùng mới có thể nhận được tối đa 3 tháng miễn phí.</string>
+    <string name="btn_continue">Kết nối với Apple Music</string>
+    <string name="btn_install">Cài đặt Apple Music</string>
+    <string name="btn_update">Cập nhật Apple Music</string>
+</resources>

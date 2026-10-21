@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000</color>
+    <color name="color_primary">#ff2d55</color>
+    <color name="primary_accent_50">#80ff2d55</color>
+    <color name="system_gray">#8e8e93</color>
+    <color name="white_alpha_25">#40ffffff</color>
+    <color name="white_alpha_70">#b3ffffff</color>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="logo_ht">76dp</dimen>
+    <dimen name="text_regular">20sp</dimen>
+    <dimen name="text_subhead">16sp</dimen>
+    <string name="approve_access_main">To play the full song, connect %1$s to Apple Music.</string>
+    <string name="approve_access_sub">Millions of songs. All ad-free. \nNew users can get up to 3 months free.</string>
+    <string name="btn_continue">Connect to Apple Music</string>
+    <string name="btn_install">Install Apple Music</string>
+    <string name="btn_update">Update Apple Music</string>
+    <style name="Body" parent="Roboto">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="ButtonAStyle" parent="Body">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/button_a_text_color</item>
+        <item name="android:background">@drawable/button_a_background</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+    <style name="Callout" parent="Roboto">
+        <item name="android:textColor">@color/system_gray</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="MusicKitAuthTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <!--<item name="colorAccent">@color/</item>-->
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Dialog.Alert</item>
+    </style>
+    <style name="Roboto">
+        <item name="customFont">fonts/Roboto-Regular.ttf</item>
+    </style>
+    <style name="Title2" parent="Roboto">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <declare-styleable name="CustomTextView">
+        <attr format="string" name="customFont"/>
+        <attr format="float" name="kerning"/>
+        <attr format="dimension" name="minTextSize"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet_dialog"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="24dp">
+
+    <!-- Pill handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="#4DFFFFFF" />
+
+    <!-- Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/auth_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tài Khoản Muzzic"
+            android:textColor="@color/text_primary_adaptive"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/auth_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/auth_title"
+            android:layout_marginTop="4dp"
+            android:text="Đăng nhập để đồng bộ playlist trên mọi thiết bị"
+            android:textColor="@color/text_secondary_adaptive"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/auth_btn_close"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_close"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:tint="@color/text_tertiary_adaptive" />
+    </RelativeLayout>
+
+    <!-- Tab Buttons (Login vs Register) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_chip_dark"
+        android:padding="3dp"
+        android:layout_marginBottom="18dp">
+
+        <TextView
+            android:id="@+id/auth_tab_login"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Đăng nhập"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_chip_selected" />
+
+        <TextView
+            android:id="@+id/auth_tab_register"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Đăng ký"
+            android:textColor="@color/text_secondary_adaptive"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Error message view -->
+    <TextView
+        android:id="@+id/auth_tv_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF453A"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Name input (Register only) -->
+    <EditText
+        android:id="@+id/auth_input_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Họ và tên của bạn"
+        android:textColor="@color/text_primary_adaptive"
+        android:textColorHint="@color/text_tertiary_adaptive"
+        android:textSize="14sp"
+        android:inputType="textPersonName"
+        android:background="@drawable/bg_search_bar"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:visibility="gone"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Email input -->
+    <EditText
+        android:id="@+id/auth_input_email"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Email (ví dụ: user@gmail.com)"
+        android:textColor="@color/text_primary_adaptive"
+        android:textColorHint="@color/text_tertiary_adaptive"
+        android:textSize="14sp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/bg_search_bar"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Password input -->
+    <EditText
+        android:id="@+id/auth_input_password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Mật khẩu (tối thiểu 6 ký tự)"
+        android:textColor="@color/text_primary_adaptive"
+        android:textColorHint="@color/text_tertiary_adaptive"
+        android:textSize="14sp"
+        android:inputType="textPassword"
+        android:background="@drawable/bg_search_bar"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="18dp" />
+
+    <!-- Progress Indicator -->
+    <ProgressBar
+        android:id="@+id/auth_progress"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Submit button -->
+    <TextView
+        android:id="@+id/auth_btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Đăng nhập"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/bg_pill_handle"
+        android:backgroundTint="@color/coral_primary"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Guest Mode Button -->
+    <TextView
+        android:id="@+id/auth_btn_guest"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="Tiếp tục bằng tài khoản Khách (Ẩn danh)"
+        android:textColor="@color/text_secondary_adaptive"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:background="@drawable/bg_chip_dark"
+        android:clickable="true"
+        android:focusable="true" />
+</LinearLayout>

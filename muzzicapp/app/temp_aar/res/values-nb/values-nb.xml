@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Koble %1$s til Apple Music for å høre hele sangen.</string>
+    <string name="approve_access_sub">Millioner av sanger. Uten reklame. \nNye brukere kan få opptil 3 måneder gratis.</string>
+    <string name="btn_continue">Koble til Apple Music</string>
+    <string name="btn_install">Installer Apple Music</string>
+    <string name="btn_update">Oppdater Apple Music</string>
+</resources>

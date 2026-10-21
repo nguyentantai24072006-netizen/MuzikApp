@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_marginEnd="@dimen/spacing_xxl"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+    <ImageView
+        android:id="@+id/explore_artist_avatar"
+        android:layout_width="@dimen/artist_avatar_size"
+        android:layout_height="@dimen/artist_avatar_size"
+        android:background="@drawable/bg_avatar_artist_blue"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/explore_artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artist"
+        android:textColor="@color/text_primary_adaptive"
+        android:textSize="@dimen/text_caption"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:gravity="center"
+        android:maxWidth="80dp"
+        android:maxLines="2"
+        android:ellipsize="end" />
+</LinearLayout>

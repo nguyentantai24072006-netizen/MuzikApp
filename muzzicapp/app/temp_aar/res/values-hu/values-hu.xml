@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">A teljes dal lejátszásához csatlakoztassa a(z) %1$s alkalmazást az Apple Musichoz.</string>
+    <string name="approve_access_sub">Több millió dal reklámmentesen. \nAkár 3 hónap ingyen az új felhasználóknak.</string>
+    <string name="btn_continue">Csatlakoztatás az Apple Musichoz</string>
+    <string name="btn_install">Az Apple Music telepítése</string>
+    <string name="btn_update">Az Apple Music frissítése</string>
+</resources>

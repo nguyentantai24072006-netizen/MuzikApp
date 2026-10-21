@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Verbinde %1$s mit Apple Music, um den kompletten Song zu spielen.</string>
+    <string name="approve_access_sub">Millionen von Songs. Ohne Werbung. \nNeue Benutzer können bis zu 3 Monate ein kostenloses Probeabo erhalten.</string>
+    <string name="btn_continue">Mit Apple Music verbinden</string>
+    <string name="btn_install">Apple Music installieren</string>
+    <string name="btn_update">Apple Music aktualisieren</string>
+</resources>

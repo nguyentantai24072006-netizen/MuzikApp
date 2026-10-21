@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Muzzic</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_explore">Khám phá</string>
+    <string name="nav_library">Thư viện</string>
+    <string name="nav_now_playing">Đang phát</string>
+
+    <!-- Home Screen -->
+    <string name="home_greeting_prefix">Chào mừng trở lại,</string>
+    <string name="home_greeting_name">Khách</string>
+    <string name="home_mood_relax">Thư giãn</string>
+    <string name="home_mood_energy">Năng lượng</string>
+    <string name="home_mood_chill">Chill</string>
+    <string name="home_mood_focus">Tập trung</string>
+    <string name="home_mood_happy">Vui vẻ</string>
+    <string name="home_featured_label">PLAYLIST NỔI BẬT</string>
+    <string name="home_featured_title">Trending Global 2026</string>
+    <string name="home_featured_desc">Những bài hit đang thịnh hành nhất</string>
+    <string name="home_suggestions_title">Playlist đề xuất</string>
+    <string name="home_suggestions_see_all">Tất cả</string>
+    <string name="home_trending_title">Thịnh hành</string>
+    <string name="home_recommended_title">Đề xuất cho bạn</string>
+    <string name="home_recommended_refresh">Làm mới</string>
+
+    <!-- Suggestions -->
+    <string name="suggest_1_title">Aura V-Pop 2026</string>
+    <string name="suggest_1_desc">Xu hướng V-Pop nổi bật</string>
+    <string name="suggest_2_title">Lofi Chiều Mưa</string>
+    <string name="suggest_2_desc">Giai điệu nhẹ nhàng sâu lắng</string>
+
+    <!-- Trending Songs -->
+    <string name="trending_1_title">Từng Quen</string>
+    <string name="trending_1_artist">Wren Evans</string>
+    <string name="trending_2_title">Lệ Lưu Ly</string>
+    <string name="trending_2_artist">Vũ Phụng Tiên</string>
+    <string name="trending_3_title">Mưa Tháng Sáu</string>
+    <string name="trending_3_artist">Văn Mai Hương</string>
+
+    <!-- Explore Screen -->
+    <string name="explore_title">Khám phá</string>
+    <string name="explore_search_hint">Tìm bài hát, nghệ sĩ…</string>
+    <string name="explore_genres_title">Thể loại</string>
+    <string name="explore_artists_title">Nghệ sĩ nổi bật</string>
+    <string name="explore_playlists_title">Playlist phổ biến</string>
+
+    <!-- Genre Names -->
+    <string name="genre_vpop">V-Pop Hits</string>
+    <string name="genre_indie">Indie Việt</string>
+    <string name="genre_hiphop">Hip-Hop Việt</string>
+    <string name="genre_pop">Pop Global</string>
+    <string name="genre_chill">Chill Beats</string>
+    <string name="genre_acoustic">Acoustic</string>
+
+    <!-- Artists -->
+    <string name="artist_1">Tăng Duy Tân</string>
+    <string name="artist_2">Bích Phương</string>
+    <string name="artist_3">The Weeknd</string>
+
+    <!-- Library Screen -->
+    <string name="library_title">Thư viện</string>
+    <string name="library_filter_all">Tất cả</string>
+    <string name="library_filter_playlist">Playlist</string>
+    <string name="library_filter_artist">Nghệ sĩ</string>
+    <string name="library_filter_album">Album</string>
+
+    <!-- Library Items -->
+    <string name="library_favorites_title">Bài hát yêu thích</string>
+    <string name="library_favorites_desc">Đã ghim • 120 bài hát</string>
+    <string name="library_downloads_title">Đã tải xuống</string>
+    <string name="library_downloads_desc">Khả dụng ngoại tuyến • 45 bài hát</string>
+    <string name="library_lofi_title">Giai điệu lofi cuối tuần</string>
+    <string name="library_lofi_desc">Danh sách phát • 18 bài hát</string>
+    <string name="library_hot_title">Nhạc Trẻ 2026 Hot</string>
+    <string name="library_hot_desc">Cập nhật liên tục</string>
+
+    <!-- Mini Player -->
+    <string name="mini_player_title">Chọn bài hát để phát</string>
+    <string name="mini_player_artist">Muzzic</string>
+
+    <!-- Now Playing Screen -->
+    <string name="now_playing_title">Đang phát</string>
+    <string name="now_playing_from_label">ĐANG PHÁT</string>
+    <string name="now_playing_source">Muzzic Player</string>
+    <string name="now_playing_song_title">Chọn một bài hát</string>
+    <string name="now_playing_artist">Muzzic</string>
+    <string name="now_playing_time_current">0:00</string>
+    <string name="now_playing_time_total">0:00</string>
+    <string name="now_playing_placeholder">Chọn một bài hát để phát</string>
+
+    <!-- Theme -->
+    <string name="theme_toggle">Chuyển giao diện</string>
+
+    <!-- Search -->
+    <string name="search_title">Tìm kiếm</string>
+    <string name="search_hint">Nhập tên bài hát hoặc nghệ sĩ…</string>
+    <string name="search_no_results">Không tìm thấy kết quả</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_notification">Thông báo</string>
+    <string name="cd_play">Phát</string>
+    <string name="cd_pause">Tạm dừng</string>
+    <string name="cd_next">Bài tiếp theo</string>
+    <string name="cd_previous">Bài trước</string>
+    <string name="cd_favorite">Yêu thích</string>
+    <string name="cd_search">Tìm kiếm</string>
+    <string name="cd_add">Thêm mới</string>
+    <string name="cd_avatar">Ảnh đại diện</string>
+    <string name="cd_album_art">Ảnh bìa album</string>
+    <string name="cd_shuffle">Phát ngẫu nhiên</string>
+    <string name="cd_repeat">Lặp lại</string>
+    <string name="cd_collapse">Thu nhỏ</string>
+    <string name="cd_more">Thêm</string>
+    <string name="cd_lyrics">Lời bài hát</string>
+    <string name="cd_bookmark">Đánh dấu</string>
+    <string name="cd_queue">Danh sách phát</string>
+    <string name="cd_theme">Chuyển giao diện sáng/tối</string>
+    <string name="cd_back">Quay lại</string>
+    <string name="cd_close">Đóng</string>
+</resources>

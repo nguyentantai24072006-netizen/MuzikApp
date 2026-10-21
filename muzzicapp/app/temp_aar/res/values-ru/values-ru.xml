@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Чтобы воспроизвести песню целиком, подключите приложение «%1$s» к Apple Music.</string>
+    <string name="approve_access_sub">Миллионы песен. Никакой рекламы. \nДо 3 месяцев бесплатно для новых пользователей.</string>
+    <string name="btn_continue">Подключить к Apple Music</string>
+    <string name="btn_install">Установить Apple Music</string>
+    <string name="btn_update">Обновить Apple Music</string>
+</resources>

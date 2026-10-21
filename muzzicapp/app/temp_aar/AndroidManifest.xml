@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.apple.android.sdk.authentication"
+    android:versionCode="1"
+    android:versionName="1.2.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="28" />
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true" >
+        <activity
+            android:name="com.apple.android.sdk.authentication.StartAuthenticationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MusicKitAuthTheme" >
+        </activity>
+        <activity
+            android:name="com.apple.android.sdk.authentication.SDKUriHandlerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/MusicKitAuthTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="${applicationId}"
+                    android:pathPattern="/authenticateresult.*"
+                    android:scheme="musicsdk" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Parçanın tamamını çalmak için %1$s ile Apple Music arasında bağlantı kurun.</string>
+    <string name="approve_access_sub">Milyonlarca parça. Tümü reklamsız. \nYeni kullanıcılar 3 aya kadar ücretsiz kullanabilirler.</string>
+    <string name="btn_continue">Apple Music’e Bağla</string>
+    <string name="btn_install">Apple Music’i Yükle</string>
+    <string name="btn_update">Apple Music’i Güncelle</string>
+</resources>

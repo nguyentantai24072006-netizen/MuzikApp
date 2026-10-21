@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="approve_access_main">Chcete‑li přehrát celou skladbu, připojte %1$s k Apple Music.</string>
+    <string name="approve_access_sub">Miliony skladeb. Vše bez reklam.\nNoví uživatelé můžou získat až 3 měsíce zdarma.</string>
+    <string name="btn_continue">Připojit k Apple Music</string>
+    <string name="btn_install">Nainstalovat Apple Music</string>
+    <string name="btn_update">Aktualizovat Apple Music</string>
+</resources>

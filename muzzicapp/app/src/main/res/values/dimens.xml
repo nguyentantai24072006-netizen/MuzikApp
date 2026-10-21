@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">12dp</dimen>
+    <dimen name="spacing_lg">16dp</dimen>
+    <dimen name="spacing_xl">20dp</dimen>
+    <dimen name="spacing_xxl">24dp</dimen>
+    <dimen name="spacing_xxxl">32dp</dimen>
+
+    <!-- Corner Radius -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">20dp</dimen>
+    <dimen name="radius_pill">50dp</dimen>
+
+    <!-- Font Sizes -->
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_subtitle">16sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_headline">24sp</dimen>
+    <dimen name="text_display">28sp</dimen>
+
+    <!-- Component Sizes -->
+    <dimen name="genre_card_height">80dp</dimen>
+    <dimen name="featured_card_height">160dp</dimen>
+    <dimen name="suggestion_card_width">160dp</dimen>
+    <dimen name="suggestion_card_height">160dp</dimen>
+    <dimen name="mini_player_height">64dp</dimen>
+    <dimen name="bottom_nav_height">56dp</dimen>
+    <dimen name="search_bar_height">48dp</dimen>
+    <dimen name="artist_avatar_size">64dp</dimen>
+    <dimen name="song_thumbnail_size">48dp</dimen>
+    <dimen name="library_thumbnail_size">52dp</dimen>
+    <dimen name="chip_height">36dp</dimen>
+
+    <!-- Icon Sizes -->
+    <dimen name="icon_sm">20dp</dimen>
+    <dimen name="icon_md">24dp</dimen>
+    <dimen name="icon_lg">32dp</dimen>
+    <dimen name="icon_xl">40dp</dimen>
+
+    <!-- Mini Player -->
+    <dimen name="mini_player_thumb_size">44dp</dimen>
+    <dimen name="mini_player_icon_size">28dp</dimen>
+</resources>
